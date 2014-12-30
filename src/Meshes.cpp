@@ -61,7 +61,7 @@ void Meshes::setup()
 
 	// Load shader
 	try {
-		mShader = gl::GlslProg(loadResource(RES_SHADER_VERT), loadResource(RES_SHADER_FRAG));
+		mShader = gl::GlslProg(loadAsset("meshes.vert"), loadAsset("meshes.frag"));
 	}
 	catch (gl::GlslProgCompileExc ex) {
 		console() << ex.what() << endl;

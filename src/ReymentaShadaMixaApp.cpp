@@ -7,7 +7,7 @@ void ReymentaShadaMixaApp::prepareSettings(Settings *settings)
 	log->logTimedString("start");
 
 	// instanciate the json wrapper class
-	mJson = JSONWrapper::create();
+	//mJson = JSONWrapper::create();
 
 	// parameters
 	mParameterBag = ParameterBag::create();
@@ -19,7 +19,6 @@ void ReymentaShadaMixaApp::prepareSettings(Settings *settings)
 	settings->setFrameRate(60.0f);
 	settings->setResizable(true);
 	settings->setWindowPos(Vec2i(mParameterBag->mMainWindowX, mParameterBag->mMainWindowY));
-}
 }
 
 void ReymentaShadaMixaApp::setup()
@@ -74,8 +73,8 @@ void ReymentaShadaMixaApp::windowManagement()
 	// setup the main window and associated draw function
 	mMainWindow = getWindow();
 	mMainWindow->setTitle("Reymenta");
-	mMainWindow->connectDraw(&ReymentaApp::drawMain, this);
-	mMainWindow->connectClose(&ReymentaApp::shutdown, this);
+	mMainWindow->connectDraw(&ReymentaShadaMixaApp::drawMain, this);
+	mMainWindow->connectClose(&ReymentaShadaMixaApp::shutdown, this);
 }
 void ReymentaShadaMixaApp::shutdown()
 {
@@ -91,7 +90,7 @@ void ReymentaShadaMixaApp::shutdown()
 		mUI->shutdown();
 		if (mMeshes->isSetup()) mMeshes->shutdown();
 		//mUserInterface->shutdown();
-		mPreview->shutdown();
+		//mPreview->shutdown();
 		mShaders->shutdownLoader();
 		quit();
 	}
@@ -101,11 +100,11 @@ void ReymentaShadaMixaApp::update()
 {
 	if (mParameterBag->mNewMode != mParameterBag->mMode) mUI->changeMode(mParameterBag->mNewMode);
 
-	if (mParameterBag->isShaderDirty)
+	/*if (mParameterBag->isShaderDirty)
 	{
 		mParameterBag->isShaderDirty = false;
 		mShaders->loadFragJson(mParameterBag->mShaderToLoad);
-	}
+	}*/
 	if (mParameterBag->iGreyScale)
 	{
 		mParameterBag->controlValues[1] = mParameterBag->controlValues[2] = mParameterBag->controlValues[3];
@@ -573,7 +572,7 @@ void ReymentaShadaMixaApp::createRenderWindow()
 
 	mRenderWindow->setBorderless();
 	mParameterBag->mRenderResoXY = Vec2f(mParameterBag->mRenderWidth, mParameterBag->mRenderHeight);
-	mRenderWindow->connectDraw(&ReymentaApp::drawRender, this);
+	mRenderWindow->connectDraw(&ReymentaShadaMixaApp::drawRender, this);
 	mParameterBag->mRenderPosXY = Vec2i(mParameterBag->mRenderX, mParameterBag->mRenderY);//20141214 was 0
 	mRenderWindow->setPos(mParameterBag->mRenderX, mParameterBag->mRenderY);
 
@@ -724,7 +723,7 @@ void ReymentaShadaMixaApp::setupMidi()
 			}
 		}
 		mMidiIn1.openPort(midiPort1);
-		mMidiIn1.midiSignal.connect(boost::bind(&ReymentaApp::midiListener1, this, boost::arg<1>::arg()));
+		mMidiIn1.midiSignal.connect(boost::bind(&ReymentaShadaMixaApp::midiListener1, this, boost::arg<1>::arg()));
 		log->logTimedString("Opening MIDIin1 port " + toString(midiPort1) + " " + midiPort1Name);
 	}
 	else
@@ -841,7 +840,7 @@ void ReymentaShadaMixaApp::processMidiMsg(midi::Message msg)
 			mOSC->sendOSCIntMessage("/layer1/clip" + controlName + "/connect", 1, 1, 1);
 		}
 		//if ( name > 20 && name < 40 )
-		if (name > 14 && name < 22)
+		/*if (name > 14 && name < 22)
 		{
 			fileName = toString(name) + ".fragjson";
 			fragFile = getAssetPath("") / "shaders" / "fragjson" / fileName;
@@ -850,7 +849,7 @@ void ReymentaShadaMixaApp::processMidiMsg(midi::Message msg)
 			// KO mShaders->loadFragJson( fullPath ); cannot compile the shader file!
 			mParameterBag->mShaderToLoad = fullPath;
 			mParameterBag->isShaderDirty = true;
-		}
+		}*/
 		//b = msg.byteOne;
 		//keybd_event( mJson->keyboardValues[ b ], NULL, NULL, NULL );
 		break;
