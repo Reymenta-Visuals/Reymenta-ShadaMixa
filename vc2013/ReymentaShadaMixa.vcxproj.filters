@@ -1,0 +1,373 @@
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Blocks">
+      <UniqueIdentifier>{A7484DDD-BE61-458D-BBAB-F460F90190F6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Awesomium">
+      <UniqueIdentifier>{B621A769-579D-4380-BDB3-12749B9A5F8C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Awesomium\include">
+      <UniqueIdentifier>{9E2483F1-868C-4164-97EA-0F8A556F7A25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Awesomium\src">
+      <UniqueIdentifier>{0BEA23FC-48C1-4237-AF05-192001B78F36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\CodeEditor">
+      <UniqueIdentifier>{101994BF-3B8E-4A96-BB54-D3407C4DE0AF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\CodeEditor\include">
+      <UniqueIdentifier>{3B756031-9F1E-40FB-961D-97E2AD8B2E32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Midi2">
+      <UniqueIdentifier>{D4DA6BA6-C8EF-4393-9E6E-AD2ECD22650F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Midi2\include">
+      <UniqueIdentifier>{277B2F86-2514-41F9-B133-7523B5F42326}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Midi2\lib">
+      <UniqueIdentifier>{D321840B-19BB-479C-B036-6A8D9D321E27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Midi2\src">
+      <UniqueIdentifier>{2F75664C-A45C-48CB-8B64-0DC5D8B9DB62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\MinimalUI">
+      <UniqueIdentifier>{C8C9D6D6-9849-42B3-A680-798C1A685A33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\MinimalUI\src">
+      <UniqueIdentifier>{E4EA2447-E981-4C6A-9A3A-E040FA4619E8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\MinimalUI\include">
+      <UniqueIdentifier>{27CD1D49-3DFC-4A75-875E-4DD33978B5F6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\OpenCV">
+      <UniqueIdentifier>{B43AC2D4-4C4D-4588-8E53-2DA73E056F7C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\OpenCV\include">
+      <UniqueIdentifier>{BF16E293-3C0A-4BA6-8C81-8E234446AC60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Reymenta">
+      <UniqueIdentifier>{D2CDE333-707A-4781-BC05-71A40908F5CF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Reymenta\include">
+      <UniqueIdentifier>{C44EE84A-C85B-4818-AE5E-C524CE210DC0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Reymenta\src">
+      <UniqueIdentifier>{FA4CF914-98D6-46B3-BBCA-32CF498C5494}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Warping">
+      <UniqueIdentifier>{58059F2B-54E9-408E-9A3E-EC6FCE4EADC3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Warping\include">
+      <UniqueIdentifier>{87EF18DE-AC4C-4E96-9465-E76D4F88231D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\Warping\src">
+      <UniqueIdentifier>{EAFEF629-6281-425E-A981-A4DFE6131AC7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\OSC">
+      <UniqueIdentifier>{F307FD35-3A9D-46A1-8163-AD83112B7AD2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\OSC\src">
+      <UniqueIdentifier>{76960012-5E92-4C12-A825-297D1B61C03E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\OSC\src\ip">
+      <UniqueIdentifier>{FCB226CD-8EAD-4D67-B961-8CB25F814FF7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\OSC\src\osc">
+      <UniqueIdentifier>{2D8A598F-0CAF-4C5D-9405-6B7143254CE5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Blocks\OSC\src\ip\win32">
+      <UniqueIdentifier>{9577E774-1168-4DB2-A55C-D3593FCFE047}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\ReymentaShadaMixaApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClCompile Include="..\src\ReymentaShadaMixaApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\blocks\Cinder-Awesomium\include\CinderAwesomium.h">
+      <Filter>Blocks\Awesomium\include</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\blocks\Cinder-Awesomium\src\CinderAwesomium.cpp">
+      <Filter>Blocks\Awesomium\src</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\blocks\Cinder-CodeEditor\include\CodeEditor.h">
+      <Filter>Blocks\CodeEditor\include</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\blocks\Cinder-CodeEditor\include\CodeEditor.cpp">
+      <Filter>Blocks\CodeEditor\include</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\blocks\Cinder-MIDI2\include\MidiConstants.h">
+      <Filter>Blocks\Midi2\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-MIDI2\include\MidiExceptions.h">
+      <Filter>Blocks\Midi2\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-MIDI2\include\MidiHeaders.h">
+      <Filter>Blocks\Midi2\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-MIDI2\include\MidiHub.h">
+      <Filter>Blocks\Midi2\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-MIDI2\include\MidiIn.h">
+      <Filter>Blocks\Midi2\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-MIDI2\include\MidiMessage.h">
+      <Filter>Blocks\Midi2\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-MIDI2\include\MidiOut.h">
+      <Filter>Blocks\Midi2\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-MIDI2\lib\RtError.h">
+      <Filter>Blocks\Midi2\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-MIDI2\lib\RtMidi.h">
+      <Filter>Blocks\Midi2\lib</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\blocks\Cinder-MIDI2\src\MidiHub.cpp">
+      <Filter>Blocks\Midi2\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\Cinder-MIDI2\src\MidiIn.cpp">
+      <Filter>Blocks\Midi2\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\Cinder-MIDI2\src\MidiMessage.cpp">
+      <Filter>Blocks\Midi2\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\Cinder-MIDI2\src\MidiOut.cpp">
+      <Filter>Blocks\Midi2\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\Cinder-MIDI2\lib\RtMidi.cpp">
+      <Filter>Blocks\Midi2\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\Cinder-MinimalUI\src\Button.cpp">
+      <Filter>Blocks\MinimalUI\src</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\blocks\Cinder-MinimalUI\include\Button.h">
+      <Filter>Blocks\MinimalUI\include</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\blocks\Cinder-MinimalUI\src\Label.cpp">
+      <Filter>Blocks\MinimalUI\src</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\blocks\Cinder-MinimalUI\include\Label.h">
+      <Filter>Blocks\MinimalUI\include</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\blocks\Cinder-MinimalUI\src\Slider.cpp">
+      <Filter>Blocks\MinimalUI\src</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\blocks\Cinder-MinimalUI\include\Slider.h">
+      <Filter>Blocks\MinimalUI\include</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\blocks\Cinder-MinimalUI\src\Graph.cpp">
+      <Filter>Blocks\MinimalUI\src</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\blocks\Cinder-MinimalUI\include\Graph.h">
+      <Filter>Blocks\MinimalUI\include</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\blocks\Cinder-MinimalUI\src\Image.cpp">
+      <Filter>Blocks\MinimalUI\src</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\blocks\Cinder-MinimalUI\include\Image.h">
+      <Filter>Blocks\MinimalUI\include</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\blocks\Cinder-MinimalUI\src\UIController.cpp">
+      <Filter>Blocks\MinimalUI\src</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\blocks\Cinder-MinimalUI\include\UIController.h">
+      <Filter>Blocks\MinimalUI\include</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\blocks\Cinder-MinimalUI\src\UIElement.cpp">
+      <Filter>Blocks\MinimalUI\src</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\blocks\Cinder-MinimalUI\include\UIElement.h">
+      <Filter>Blocks\MinimalUI\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-OpenCV\include\CinderOpenCV.h">
+      <Filter>Blocks\OpenCV\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-Reymenta\include\AudioWrapper.h">
+      <Filter>Blocks\Reymenta\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-Reymenta\include\Batchass.h">
+      <Filter>Blocks\Reymenta\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-Reymenta\include\Logger.h">
+      <Filter>Blocks\Reymenta\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-Reymenta\include\OSCWrapper.h">
+      <Filter>Blocks\Reymenta\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-Reymenta\include\ParameterBag.h">
+      <Filter>Blocks\Reymenta\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-Reymenta\include\Shaders.h">
+      <Filter>Blocks\Reymenta\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-Reymenta\include\Textures.h">
+      <Filter>Blocks\Reymenta\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-Reymenta\include\Watchdog.h">
+      <Filter>Blocks\Reymenta\include</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\blocks\Cinder-Reymenta\src\AudioWrapper.cpp">
+      <Filter>Blocks\Reymenta\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\Cinder-Reymenta\src\Batchass.cpp">
+      <Filter>Blocks\Reymenta\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\Cinder-Reymenta\src\Logger.cpp">
+      <Filter>Blocks\Reymenta\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\Cinder-Reymenta\src\OSCWrapper.cpp">
+      <Filter>Blocks\Reymenta\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\Cinder-Reymenta\src\ParameterBag.cpp">
+      <Filter>Blocks\Reymenta\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\Cinder-Reymenta\src\Shaders.cpp">
+      <Filter>Blocks\Reymenta\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\Cinder-Reymenta\src\Textures.cpp">
+      <Filter>Blocks\Reymenta\src</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\blocks\Cinder-Warping\include\Warp.h">
+      <Filter>Blocks\Warping\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-Warping\include\WarpBilinear.h">
+      <Filter>Blocks\Warping\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-Warping\include\WarpPerspective.h">
+      <Filter>Blocks\Warping\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-Warping\include\WarpPerspectiveBilinear.h">
+      <Filter>Blocks\Warping\include</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\blocks\Cinder-Warping\src\Warp.cpp">
+      <Filter>Blocks\Warping\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\Cinder-Warping\src\WarpBilinear.cpp">
+      <Filter>Blocks\Warping\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\Cinder-Warping\src\WarpPerspective.cpp">
+      <Filter>Blocks\Warping\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\Cinder-Warping\src\WarpPerspectiveBilinear.cpp">
+      <Filter>Blocks\Warping\src</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\blocks\OpenCV\include\CinderOpenCV.h">
+      <Filter>Blocks\OpenCV\include</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\blocks\OSC\src\OscBundle.cpp">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\OSC\src\OscListener.cpp">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\OSC\src\OscMessage.cpp">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\OSC\src\OscSender.cpp">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\OSC\src\ip\IpEndpointName.cpp">
+      <Filter>Blocks\OSC\src\ip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\OSC\src\osc\OscOutboundPacketStream.cpp">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\OSC\src\osc\OscPrintReceivedElements.cpp">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\OSC\src\osc\OscReceivedElements.cpp">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\OSC\src\osc\OscTypes.cpp">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\..\blocks\OSC\src\OscArg.h">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\OscBundle.h">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\OscListener.h">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\OscMessage.h">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\OscSender.h">
+      <Filter>Blocks\OSC\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\ip\IpEndpointName.h">
+      <Filter>Blocks\OSC\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\ip\NetworkingUtils.h">
+      <Filter>Blocks\OSC\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\ip\PacketListener.h">
+      <Filter>Blocks\OSC\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\ip\TimerListener.h">
+      <Filter>Blocks\OSC\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\ip\UdpSocket.h">
+      <Filter>Blocks\OSC\src\ip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\osc\MessageMappingOscPacketListener.h">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\osc\OscException.h">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\osc\OscHostEndianness.h">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\osc\OscOutboundPacketStream.h">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\osc\OscPacketListener.h">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\osc\OscPrintReceivedElements.h">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\osc\OscReceivedElements.h">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\OSC\src\osc\OscTypes.h">
+      <Filter>Blocks\OSC\src\osc</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\..\blocks\OSC\src\ip\win32\NetworkingUtils.cpp">
+      <Filter>Blocks\OSC\src\ip\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\OSC\src\ip\win32\UdpSocket.cpp">
+      <Filter>Blocks\OSC\src\ip\win32</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
