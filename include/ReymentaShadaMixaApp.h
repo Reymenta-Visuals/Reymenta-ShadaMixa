@@ -39,6 +39,10 @@
 #include "Meshes.h"
 // point sphere
 #include "PointSphere.h"
+// code editor
+#include "CodeEditor.h"
+// utilities
+#include "Batchass.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -130,6 +134,8 @@ private:
 	WarpWrapperRef				mWarpings;
 	// osc
 	OSCRef						mOSC;
+	// util
+	BatchassRef					mBatchass;
 	// Preview
 	//PreviewRef					mPreview;
 	// sequence

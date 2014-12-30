@@ -91,6 +91,9 @@
     <Filter Include="Blocks\OSC\src\ip\win32">
       <UniqueIdentifier>{9577E774-1168-4DB2-A55C-D3593FCFE047}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Blocks\Cinder-MeshHelper">
+      <UniqueIdentifier>{62cdf908-4acd-479c-ba2e-7c06d48e2166}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\ReymentaShadaMixaApp.cpp">
@@ -197,9 +200,6 @@
     </ClCompile>
     <ClInclude Include="..\..\..\blocks\Cinder-MinimalUI\include\UIElement.h">
       <Filter>Blocks\MinimalUI\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\blocks\Cinder-OpenCV\include\CinderOpenCV.h">
-      <Filter>Blocks\OpenCV\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\blocks\Cinder-Reymenta\include\AudioWrapper.h">
       <Filter>Blocks\Reymenta\include</Filter>
@@ -387,8 +387,14 @@
     <ClCompile Include="..\src\LibraryPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\blocks\Cinder-MeshHelper\src\MeshHelper.cpp">
+      <Filter>Blocks\Cinder-MeshHelper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\blocks\Cinder-MeshHelper\MeshHelper.h">
+      <Filter>Blocks\Cinder-MeshHelper</Filter>
+    </ClInclude>
     <ClInclude Include="..\include\Resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -421,6 +427,9 @@
     </ClInclude>
     <ClInclude Include="..\include\LibraryPanel.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-MeshHelper\MeshHelper.cpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

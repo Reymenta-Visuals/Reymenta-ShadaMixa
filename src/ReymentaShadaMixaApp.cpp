@@ -36,6 +36,8 @@ void ReymentaShadaMixaApp::setup()
 
 	// instanciate the audio class
 	mAudio = AudioWrapper::create(mParameterBag, mTextures);
+	// utils
+	mBatchass = Batchass::create(mParameterBag, mShaders);
 
 	windowManagement();
 	// instanciate the warp wrapper class
@@ -69,7 +71,7 @@ void ReymentaShadaMixaApp::setup()
 void ReymentaShadaMixaApp::windowManagement()
 {
 	log->logTimedString("windowManagement");
-	getWindowsResolution();
+	mBatchass->getWindowsResolution();
 	// setup the main window and associated draw function
 	mMainWindow = getWindow();
 	mMainWindow->setTitle("Reymenta");
@@ -175,7 +177,7 @@ void ReymentaShadaMixaApp::showCodeCallback()
 {
 	if (mCodeEditorWindow == NULL)
 	{
-		getWindowsResolution();
+		mBatchass->getWindowsResolution();
 		mParameterBag->mCodeEditorHeight = mParameterBag->mRenderHeight;
 		//mCodeEditorWindow = createWindow(Window::Format().size(mParameterBag->mCodeEditorWidth, mParameterBag->mCodeEditorHeight));
 		mCodeEditorWindow = createWindow(Window::Format().size(mMainWindow->getWidth(), mMainWindow->getHeight() - 150));
@@ -185,7 +187,7 @@ void ReymentaShadaMixaApp::showCodeCallback()
 		mCodeEditorWindow->setPos(mMainWindow->getPos() + Vec2i(0, 100));
 		//mCodeEditorWindow->setBorderless();
 		mCodeEditorWindow->setAlwaysOnTop();
-		mCodeEditorWindow->connectDraw(&ReymentaApp::drawCodeEditor, this);
+		mCodeEditorWindow->connectDraw(&ReymentaShadaMixaApp::drawCodeEditor, this);
 		createCodeEditor();
 
 		HWND hWnd = (HWND)mCodeEditorWindow->getNative();
@@ -226,7 +228,7 @@ void ReymentaShadaMixaApp::createUIWindow()
 {
 	if (mUIWindow == NULL)
 	{
-		getWindowsResolution();
+		mBatchass->getWindowsResolution();
 		mParameterBag->mCodeEditorHeight = mParameterBag->mRenderHeight;
 		mUIWindow = createWindow(Window::Format().size(mMainWindow->getWidth(), mMainWindow->getHeight() - 150));
 		// put it rightmost without scrollbar
@@ -235,7 +237,7 @@ void ReymentaShadaMixaApp::createUIWindow()
 		mUIWindow->setPos(mMainWindow->getPos() + Vec2i(0, 100));
 		//mCodeEditorWindow->setBorderless();
 		mUIWindow->setAlwaysOnTop();
-		mUIWindow->connectDraw(&ReymentaApp::drawUI, this);
+		mUIWindow->connectDraw(&ReymentaShadaMixaApp::drawUI, this);
 		createCodeEditor();
 		//mUserInterface->mCodePanel->mCodeEditor->connectWindow(mCodeEditorWindow);
 		HWND hWnd = (HWND)mUIWindow->getNative();
@@ -479,16 +481,6 @@ void ReymentaShadaMixaApp::fileDrop(FileDropEvent event)
 		mShaders->loadFragmentShader(mPath);
 		timeline().apply(&mTimer, 1.0f, 1.0f).finishFn([&]{ save(); });
 	}
-
-	if (!loaded && ext == "fragjson")
-	{
-		// try loading shader parts
-		//do not try to load by other ways
-		loaded = true;
-		//mShaders->incrementPreviewIndex();
-		mShaders->loadFragJson(mFile);
-		timeline().apply(&mTimer, 1.0f, 1.0f).finishFn([&]{ save(); });
-	}
 	if (!loaded && ext == "patchjson")
 	{
 		// try loading patch
@@ -553,7 +545,7 @@ void ReymentaShadaMixaApp::fileDrop(FileDropEvent event)
 void ReymentaShadaMixaApp::createRenderWindow()
 {
 	deleteRenderWindows();
-	getWindowsResolution();
+	mBatchass->getWindowsResolution();
 
 	mParameterBag->iResolution.x = mParameterBag->mRenderWidth;
 	mParameterBag->iResolution.y = mParameterBag->mRenderHeight;
@@ -747,7 +739,7 @@ void ReymentaShadaMixaApp::setupMidi()
 		{
 			mMidiIn2.openPort(midiPort2);
 
-			mMidiIn2.midiSignal.connect(boost::bind(&ReymentaApp::midiListener2, this, boost::arg<1>::arg()));
+			mMidiIn2.midiSignal.connect(boost::bind(&ReymentaShadaMixaApp::midiListener2, this, boost::arg<1>::arg()));
 
 			log->logTimedString("Opening MIDIin2 port " + toString(midiPort2) + " " + midiPort2Name);
 		}
