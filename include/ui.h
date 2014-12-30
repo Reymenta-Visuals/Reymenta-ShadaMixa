@@ -20,7 +20,7 @@
 #include "OutputPanel.h"
 #include "WarpPanel.h"
 //#include "VideoPanel.h"
-#include "FboPanel.h"
+//#include "FboPanel.h"
 #include "LibraryPanel.h"
 
 using namespace ci;
@@ -142,7 +142,7 @@ namespace Reymenta
 		//FboPanelRef					mFboPanel;
 		// panels
 		ChannelsPanelRef			mChannelsPanel;
-		TransitionPanelRef			mTransitionPanel;
+		//TransitionPanelRef			mTransitionPanel;
 		SlidersPanelRef				mSlidersPanel;
 		OutputPanelRef				mOutputPanel;
 		vector<MinimalUI::UIControllerRef> mPanels;

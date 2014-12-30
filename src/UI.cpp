@@ -39,12 +39,12 @@ void UI::setup()
 {
 	// load custom fonts (I do this once, in my UserInterface class)
 	// UI fonts
-	mParameterBag->mLabelFont = Font(loadResource(RES_HELVETICA_NEUE_REGULAR), 14 * 2);
-	mParameterBag->mSmallLabelFont = Font(loadResource(RES_HELVETICA_NEUE_REGULAR), 12 * 2);
+	mParameterBag->mLabelFont = Font(loadAsset("HelveticaNeue.ttf"), 14 * 2);
+	mParameterBag->mSmallLabelFont = Font(loadAsset("HelveticaNeue.ttf"), 12 * 2);
 	//mParameterBag->mIconFont = Font(loadResource(RES_GLYPHICONS_REGULAR), 18 * 2);
-	mParameterBag->mHeaderFont = Font(loadResource(RES_HELVETICA), 24 * 2);
-	mParameterBag->mBodyFont = Font(loadResource(RES_GARAMOND), 19 * 2);
-	mParameterBag->mFooterFont = Font(loadResource(RES_GARAMOND_ITALIC), 14 * 2);
+	mParameterBag->mHeaderFont = Font(loadAsset("HelveticaNeueUltraLight.ttf"), 24 * 2);
+	mParameterBag->mBodyFont = Font(loadAsset("Garamond.ttf"), 19 * 2);
+	mParameterBag->mFooterFont = Font(loadAsset("GaramondItalic.ttf"), 14 * 2);
 
 	setupGlobal();
 	setupMiniControl();
@@ -294,7 +294,7 @@ void UI::draw()
 		//if ((int)getElapsedSeconds() % 10 == 0) // mParameterBag->mUIRefresh == 0)
 		//mFboPanel->draw();
 		if (mSlidersPanel) mSlidersPanel->draw();
-		if (mTransitionPanel) mTransitionPanel->draw();
+		//if (mTransitionPanel) mTransitionPanel->draw();
 		mLibraryPanel->draw();
 	}
 	mOutputPanel->draw();
@@ -467,7 +467,7 @@ void UI::update()
 	if (mWarpPanel) mWarpPanel->update();
 	//if (mFboPanel) mFboPanel->update();
 	if (mSlidersPanel) mSlidersPanel->update();
-	if (mTransitionPanel) mTransitionPanel->update();
+	//if (mTransitionPanel) mTransitionPanel->update();
 	if (mOutputPanel->isSetup()) mOutputPanel->update();
 	if (mLibraryPanel) mLibraryPanel->update();
 
@@ -630,7 +630,7 @@ void UI::resize()
 	if (mChannelsPanel) mChannelsPanel->resize();
 	if (mWarpPanel) mWarpPanel->resize();
 	if (mSlidersPanel) mSlidersPanel->resize();
-	if (mTransitionPanel) mTransitionPanel->resize();
+	//if (mTransitionPanel) mTransitionPanel->resize();
 	if (mLibraryPanel) mLibraryPanel->resize();
 }
 
