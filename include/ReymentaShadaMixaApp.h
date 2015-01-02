@@ -9,10 +9,10 @@
 #include "Logger.h"
 // parameters
 #include "ParameterBag.h"
-// textures
-#include "Textures.h"
 // shaders
 #include "Shaders.h"
+// textures
+#include "Textures.h"
 // UI
 #include "UI.h"
 // transparent window
@@ -118,10 +118,10 @@ private:
 	// Logger
 	LoggerRef					log;
 
-	// Textures
-	TexturesRef					mTextures;
 	// Shaders
 	ShadersRef					mShaders;
+	// Textures
+	TexturesRef					mTextures;
 	// minimalUI
 	UIRef						mUI;
 	// imGui
@@ -154,8 +154,8 @@ private:
 	midi::Input					mMidiIn1;
 	midi::Input					mMidiIn2;
 	void						setupMidi();
-	void						midiListener1(midi::Message msg);
-	void						midiListener2(midi::Message msg);
+	//void						midiListener1(midi::Message msg);
+	//void						midiListener2(midi::Message msg);
 	void						processMidiMsg(midi::Message msg);
 	int							midiPort1;
 	string						midiPort1Name;

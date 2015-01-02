@@ -37,7 +37,7 @@ void ReymentaShadaMixaApp::setup()
 	// instanciate the audio class
 	mAudio = AudioWrapper::create(mParameterBag, mTextures);
 	// utils
-	mBatchass = Batchass::create(mParameterBag, mShaders);
+	mBatchass = Batchass::create(mParameterBag);
 
 	windowManagement();
 	// instanciate the warp wrapper class
@@ -53,7 +53,7 @@ void ReymentaShadaMixaApp::setup()
 	// instanciate the Preview class
 	//mPreview = Preview::create(mParameterBag, mTextures);
 	// instanciate the OSC class
-	mOSC = OSC::create(mParameterBag, mShaders);
+	mOSC = OSC::create(mParameterBag);
 	// instanciate the Sequence class
 	//mSequence = Sequence::create(mParameterBag, mTextures);
 	// instanciate the Meshes class
@@ -74,7 +74,7 @@ void ReymentaShadaMixaApp::windowManagement()
 	mBatchass->getWindowsResolution();
 	// setup the main window and associated draw function
 	mMainWindow = getWindow();
-	mMainWindow->setTitle("Reymenta");
+	mMainWindow->setTitle("Reymenta ShadaMixa");
 	mMainWindow->connectDraw(&ReymentaShadaMixaApp::drawMain, this);
 	mMainWindow->connectClose(&ReymentaShadaMixaApp::shutdown, this);
 }
@@ -420,7 +420,7 @@ void ReymentaShadaMixaApp::keyUp(KeyEvent event)
 
 void ReymentaShadaMixaApp::updateWindowTitle()
 {
-	getWindow()->setTitle("(" + toString(floor(getAverageFps())) + " fps) Shaders");
+	getWindow()->setTitle("(" + toString(floor(getAverageFps())) + " fps) Reymenta ShadaMixa");
 }
 
 void ReymentaShadaMixaApp::fileDrop(FileDropEvent event)
@@ -715,7 +715,7 @@ void ReymentaShadaMixaApp::setupMidi()
 			}
 		}
 		mMidiIn1.openPort(midiPort1);
-		mMidiIn1.midiSignal.connect(boost::bind(&ReymentaShadaMixaApp::midiListener1, this, boost::arg<1>::arg()));
+		mMidiIn1.midiSignal.connect(boost::bind(&ReymentaShadaMixaApp::processMidiMsg, this, boost::arg<1>::arg()));
 		log->logTimedString("Opening MIDIin1 port " + toString(midiPort1) + " " + midiPort1Name);
 	}
 	else
@@ -739,7 +739,7 @@ void ReymentaShadaMixaApp::setupMidi()
 		{
 			mMidiIn2.openPort(midiPort2);
 
-			mMidiIn2.midiSignal.connect(boost::bind(&ReymentaShadaMixaApp::midiListener2, this, boost::arg<1>::arg()));
+			mMidiIn2.midiSignal.connect(boost::bind(&ReymentaShadaMixaApp::processMidiMsg, this, boost::arg<1>::arg()));
 
 			log->logTimedString("Opening MIDIin2 port " + toString(midiPort2) + " " + midiPort2Name);
 		}
@@ -753,14 +753,14 @@ void ReymentaShadaMixaApp::setupMidi()
 		log->logTimedString("No MIDIin2 Ports found!!!!");
 	}
 }
-void ReymentaShadaMixaApp::midiListener1(midi::Message msg)
-{
-	processMidiMsg(msg);
-}
-void ReymentaShadaMixaApp::midiListener2(midi::Message msg)
-{
-	processMidiMsg(msg);
-}
+//void ReymentaShadaMixaApp::midiListener1(midi::Message msg)
+//{
+//	processMidiMsg(msg);
+//}
+//void ReymentaShadaMixaApp::midiListener2(midi::Message msg)
+//{
+//	processMidiMsg(msg);
+//}
 void ReymentaShadaMixaApp::processMidiMsg(midi::Message msg)
 {
 	stringstream ssName;
@@ -793,23 +793,12 @@ void ReymentaShadaMixaApp::processMidiMsg(midi::Message msg)
 			case 41:
 				mUI->toggleVisibility();
 				break;
-			case 58:
-				if (newValue == 127)
-				{
 
-				}
-				break;
-			case 59:
-				if (newValue == 127)
-				{
-
-				}
-				break;
 			default:
 				// rotary
-				if (name > 10 && name < 19) mOSC->rotaryChange(name, normalizedValue);
+				//if (name > 10 && name < 19) mOSC->rotaryChange(name, normalizedValue);
 				// toggle button
-				if (name > 20 && name < 48) mOSC->toggleChange(name, newValue);
+				//if (name > 20 && name < 48) mOSC->toggleChange(name, newValue);
 				break;
 			}
 		}
