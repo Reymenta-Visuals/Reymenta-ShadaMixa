@@ -65,7 +65,6 @@ void ReymentaShadaMixaApp::setup()
 	// midi
 	//setupMidi();
 	mTimer = 0.0f;
-	mCursorVisible = true;
 	mUI->tapTempo(true);
 }
 void ReymentaShadaMixaApp::windowManagement()
@@ -395,7 +394,7 @@ void ReymentaShadaMixaApp::keyDown(KeyEvent event)
 			removeUI = !removeUI;
 			break;
 		case ci::app::KeyEvent::KEY_c:
-			if (mCursorVisible)
+			if (mParameterBag->mCursorVisible)
 			{
 				hideCursor();
 			}
@@ -403,7 +402,7 @@ void ReymentaShadaMixaApp::keyDown(KeyEvent event)
 			{
 				showCursor();
 			}
-			mCursorVisible = !mCursorVisible;
+			mParameterBag->mCursorVisible = !mParameterBag->mCursorVisible;
 			break;
 		default:
 			break;

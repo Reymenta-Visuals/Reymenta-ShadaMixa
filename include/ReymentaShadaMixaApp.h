@@ -82,7 +82,6 @@ private:
 	void						getWindowsResolution();
 	void						drawMain();
 	WindowRef					mCodeEditorWindow;
-	bool						mCursorVisible;
 	bool						mIsShutDown;
 	// ui
 	WindowRef					mUIWindow;
