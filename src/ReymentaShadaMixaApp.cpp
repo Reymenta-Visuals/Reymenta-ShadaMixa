@@ -104,8 +104,8 @@ void ReymentaShadaMixaApp::update()
 
 	/*if (mParameterBag->isShaderDirty)
 	{
-		mParameterBag->isShaderDirty = false;
-		mShaders->loadFragJson(mParameterBag->mShaderToLoad);
+	mParameterBag->isShaderDirty = false;
+	mShaders->loadFragJson(mParameterBag->mShaderToLoad);
 	}*/
 	if (mParameterBag->iGreyScale)
 	{
@@ -470,6 +470,16 @@ void ReymentaShadaMixaApp::fileDrop(FileDropEvent event)
 		if (mShaders->loadPixelFragmentShader(mFile))
 		{
 			mParameterBag->controlValues[13] = 1.0f;
+			// send content via OSC
+			fs::path fr = mFile;
+			string name = "unknown";
+			if (mFile.find_last_of("\\") != std::string::npos) name = mFile.substr(mFile.find_last_of("\\") + 1);
+			if (fs::exists(fr))
+			{
+				std::string fs = loadString(loadFile(mFile));
+				mOSC->sendOSCStringMessage("/fs", 0, fs, name);
+			}
+			// save thumb
 			timeline().apply(&mTimer, 1.0f, 1.0f).finishFn([&]{ save(); });
 		}
 	}
@@ -823,13 +833,13 @@ void ReymentaShadaMixaApp::processMidiMsg(midi::Message msg)
 		//if ( name > 20 && name < 40 )
 		/*if (name > 14 && name < 22)
 		{
-			fileName = toString(name) + ".fragjson";
-			fragFile = getAssetPath("") / "shaders" / "fragjson" / fileName;
-			fullPath = fragFile.string();
-			//21:A-1//48:C2
-			// KO mShaders->loadFragJson( fullPath ); cannot compile the shader file!
-			mParameterBag->mShaderToLoad = fullPath;
-			mParameterBag->isShaderDirty = true;
+		fileName = toString(name) + ".fragjson";
+		fragFile = getAssetPath("") / "shaders" / "fragjson" / fileName;
+		fullPath = fragFile.string();
+		//21:A-1//48:C2
+		// KO mShaders->loadFragJson( fullPath ); cannot compile the shader file!
+		mParameterBag->mShaderToLoad = fullPath;
+		mParameterBag->isShaderDirty = true;
 		}*/
 		//b = msg.byteOne;
 		//keybd_event( mJson->keyboardValues[ b ], NULL, NULL, NULL );

@@ -17,7 +17,7 @@ SlidersPanel::SlidersPanel(ParameterBagRef aParameterBag, ShadersRef aShadersRef
 	// zoom
 	defaultZoom = 1.0f;
 	minZoom = 0.1;
-	maxZoom = 5.0;
+	maxZoom = 1.0;
 	tZoom = autoZoom = false;
 	// exposure
 	defaultExposure = 1.0;
@@ -25,8 +25,8 @@ SlidersPanel::SlidersPanel(ParameterBagRef aParameterBag, ShadersRef aShadersRef
 	maxExposure = 2.0;
 	tExposure = autoExposure = false;
 	// ratio
-	defaultRatio = 20.0;
-	minRatio = 255.0;
+	defaultRatio = 1.0;
+	minRatio = 1.0;
 	maxRatio = 0.00000000001;
 	tRatio = autoRatio = false;
 	// z position
