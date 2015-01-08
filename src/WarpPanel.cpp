@@ -41,7 +41,7 @@ void WarpPanel::setupParams()
 	for (int i = 0; i < 8; i++)
 	{
 		buttonIndex[i] = mParams->addButton(toString(i), std::bind(&WarpPanel::setCurrentIndex, this, i, std::placeholders::_1), "{ \"clear\":false, \"width\":48, \"stateless\":false, \"group\":\"index\", \"exclusive\":true }");
-		labelFboIndex[i] = mParams->addLabel(toString(mParameterBag->iWarpFboChannels[i]), "{ \"width\":48 }");
+		labelFboIndex[i] = mParams->addLabel(toString(mParameterBag->mWarpFbos[warpIndex].textureIndex), "{ \"width\":48 }");
 	}
 }
 void WarpPanel::setCurrentIndex(const int &aIndex, const bool &pressed)
@@ -54,10 +54,10 @@ void WarpPanel::setCurrentIndex(const int &aIndex, const bool &pressed)
 }
 void WarpPanel::setCurrentFboIndex(const int &aIndex, const bool &pressed)
 {
-	mParameterBag->iWarpFboChannels[warpIndex] += aIndex;
-	if (mParameterBag->iWarpFboChannels[warpIndex] > 7) mParameterBag->iWarpFboChannels[warpIndex] = 0;
-	if (mParameterBag->iWarpFboChannels[warpIndex] < 0) mParameterBag->iWarpFboChannels[warpIndex] = 7;
-	labelFboIndex[warpIndex]->setName(toString(mParameterBag->iWarpFboChannels[warpIndex]));
+	mParameterBag->mWarpFbos[warpIndex].textureIndex += aIndex;
+	if (mParameterBag->mWarpFbos[warpIndex].textureIndex > 7) mParameterBag->mWarpFbos[warpIndex].textureIndex = 0;
+	if (mParameterBag->mWarpFbos[warpIndex].textureIndex < 0) mParameterBag->mWarpFbos[warpIndex].textureIndex = 7;
+	labelFboIndex[warpIndex]->setName(toString(mParameterBag->mWarpFbos[warpIndex].textureIndex));
 }
 void WarpPanel::update()
 {
@@ -67,7 +67,7 @@ void WarpPanel::update()
 		mParams->update();
 		for (int i = 0; i < 8; i++)
 		{
-			buttonIndex[i]->setBackgroundTexture(mTextures->getFboTexture(mParameterBag->iWarpFboChannels[i]));
+			buttonIndex[i]->setBackgroundTexture(mTextures->getFboTexture(mParameterBag->mWarpFbos[warpIndex].textureIndex));
 		}
 	}
 }

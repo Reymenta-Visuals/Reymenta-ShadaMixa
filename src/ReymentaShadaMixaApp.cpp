@@ -11,6 +11,8 @@ void ReymentaShadaMixaApp::prepareSettings(Settings *settings)
 
 	// parameters
 	mParameterBag = ParameterBag::create();
+	// utils
+	mBatchass = Batchass::create(mParameterBag);
 
 	settings->setWindowSize(mParameterBag->mMainWindowWidth, mParameterBag->mMainWindowHeight);
 	// Setting an unrealistically high frame rate effectively
@@ -36,9 +38,7 @@ void ReymentaShadaMixaApp::setup()
 
 	// instanciate the audio class
 	mAudio = AudioWrapper::create(mParameterBag, mTextures);
-	// utils
-	mBatchass = Batchass::create(mParameterBag);
-
+	mBatchass->createWarpFbos();
 	windowManagement();
 	// instanciate the warp wrapper class
 	mWarpings = WarpWrapper::create(mParameterBag, mTextures, mShaders);
@@ -90,8 +90,6 @@ void ReymentaShadaMixaApp::shutdown()
 		mParameterBag->save();
 		mUI->shutdown();
 		if (mMeshes->isSetup()) mMeshes->shutdown();
-		//mUserInterface->shutdown();
-		//mPreview->shutdown();
 		mShaders->shutdownLoader();
 		quit();
 	}
@@ -101,11 +99,6 @@ void ReymentaShadaMixaApp::update()
 {
 	if (mParameterBag->mNewMode != mParameterBag->mMode) mUI->changeMode(mParameterBag->mNewMode);
 
-	/*if (mParameterBag->isShaderDirty)
-	{
-	mParameterBag->isShaderDirty = false;
-	mShaders->loadFragJson(mParameterBag->mShaderToLoad);
-	}*/
 	if (mParameterBag->iGreyScale)
 	{
 		mParameterBag->controlValues[1] = mParameterBag->controlValues[2] = mParameterBag->controlValues[3];

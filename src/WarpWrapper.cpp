@@ -177,7 +177,7 @@ void WarpWrapper::draw()
 			// a) issue your draw commands between begin() and end() statements
 			warp->begin();
 			
-			gl::draw(mTextures->getFboTexture(mParameterBag->iWarpFboChannels[i]), mSrcArea, warp->getBounds());
+			gl::draw(mTextures->getFboTexture(mParameterBag->mWarpFbos[i].textureIndex), mSrcArea, warp->getBounds());
 
 			warp->end();
 		}
@@ -187,7 +187,7 @@ void WarpWrapper::draw()
 
 			if (i < mParameterBag->mWarpCount)
 			{
-				warp->draw(mTextures->getFboTexture(mParameterBag->iWarpFboChannels[i]), mTextures->getFboTexture(mParameterBag->iWarpFboChannels[i]).getBounds());// was i
+				warp->draw(mTextures->getFboTexture(mParameterBag->mWarpFbos[i].textureIndex), mTextures->getFboTexture(mParameterBag->mWarpFbos[i].textureIndex).getBounds());// was i
 			}
 		}
 		i++;
