@@ -778,6 +778,7 @@ void UI::changeMode(int newMode)
 			break;
 		case 5: //mesh
 			mParameterBag->iLight = false;
+			mParameterBag->controlValues[19] = 0.0; //reset rotation
 			break;
 		}
 		mParameterBag->mMode = newMode;
@@ -787,11 +788,14 @@ void UI::changeMode(int newMode)
 			mWarpPanel->toggleVisibility();
 			break;
 		case 4: //sphere
+			mChannelsPanel->show();
 			mParameterBag->mCamPosXY = Vec2f(-155.6, -87.3);
 			mParameterBag->mCamEyePointZ = -436.f;
 			mParameterBag->controlValues[5] = mParameterBag->controlValues[6] = mParameterBag->controlValues[7] = 0;
 			break;
 		case 5: //mesh
+			mChannelsPanel->show();
+			mParameterBag->controlValues[19] = 1.0; //reset rotation
 			mParameterBag->mRenderPosXY = Vec2f(0.0, 0.0);
 			mParameterBag->mCamEyePointZ = -56.f;
 			mParameterBag->controlValues[5] = mParameterBag->controlValues[6] = mParameterBag->controlValues[7] = 0;

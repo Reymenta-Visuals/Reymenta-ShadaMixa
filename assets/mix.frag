@@ -226,15 +226,21 @@ void print(float _i,vec2 _f,vec2 _p,vec3 _c)
 // global functions end
 // left main lines begin
 
-vec3 shaderLeft(vec2 uv)
+vec3 shaderLeft(vec2 c)
 {
-	vec4 left = texture2D(iChannel0, uv);
+	float x = (c.x - 0.5)*iZoom*2.0;
+	float y = (c.y - 0.5)*iZoom*2.0;
+	vec2 uv = vec2(x, y);
+   	//uv.x -= iRenderXY.x;
+   	//uv.y -= iRenderXY.y;
+
+	vec4 left = texture2D(iChannel0, c-uv);
 	if (iBlendmode == 1) 
 	{
 		vec2 offset = vec2(iBackgroundColor.r/50.0,.0);
-		left.r = texture2D(iChannel0, uv+offset.xy).r;
-		left.g = texture2D(iChannel0, uv          ).g;
-		left.b = texture2D(iChannel0, uv+offset.yx).b;
+		left.r = texture2D(iChannel0, c-uv+offset.xy).r;
+		left.g = texture2D(iChannel0, c-uv          ).g;
+		left.b = texture2D(iChannel0, c-uv+offset.yx).b;
 	}
 	return vec3( left.r, left.g, left.b );
 }
@@ -242,21 +248,26 @@ vec3 shaderLeft(vec2 uv)
 // left main lines end
 // right main lines begin
 
-vec3 shaderRight(vec2 uv)
+vec3 shaderRight(vec2 c)
 {
-	vec4 right = texture2D(iChannel1, uv);
+	float x = (c.x - 0.5)*iZoom*2.0;
+	float y = (c.y - 0.5)*iZoom*2.0;
+	vec2 uv = vec2(x, y);
+   	//uv.x -= iRenderXY.x;
+   	//uv.y -= iRenderXY.y;
+
+	vec4 right = texture2D(iChannel1, c-uv);
 	// chromatic aberation
 	if (iBlendmode == 1) 
 	{
 		vec2 offset = vec2(iBackgroundColor.r/50.0,.0);
-		right.r = texture2D(iChannel1, uv+offset.xy).r;
-		right.g = texture2D(iChannel1, uv          ).g;
-		right.b = texture2D(iChannel1, uv+offset.yx).b;
+		right.r = texture2D(iChannel1, c-uv+offset.xy).r;
+		right.g = texture2D(iChannel1, c-uv          ).g;
+		right.b = texture2D(iChannel1, c-uv+offset.yx).b;
 	}
 
 	return vec3( right.r, right.g, right.b );
 }
-
 // right main lines end
 vec3 mainFunction( vec2 uv )
 {
@@ -265,10 +276,12 @@ vec3 mainFunction( vec2 uv )
 // main start
 void main(void)
 {
-	vec2 uv = gl_FragCoord.xy / iResolution.xy;//gl_TexCoord[0].st;
+	vec2 uv = gl_FragCoord.xy / iResolution.xy;
 	uv.x -= iRenderXY.x;
 	uv.y -= iRenderXY.y;
-	uv *= iZoom;
+	float rad = radians(360.0 * fract(iGlobalTime*iRotationSpeed));
+	mat2 rotate = mat2(cos(rad),sin(rad),-sin(rad),cos(rad));
+	uv = rotate * (uv - 0.5) + 0.5;
 
 	if (iGlitch == 1) 
 	{
@@ -284,15 +297,6 @@ void main(void)
 		vec2 divs = vec2(iResolution.x * iPixelate / iResolution.y*60.0, iPixelate*60.0);
 		uv = floor(uv * divs)/ divs;
 	}
-	/*
-	vec2 divs = vec2(iResolution.x * iRatio / iResolution.y, iRatio);
-
-
-	if ( iPixelate < 1.0 )
-	{
-		vec2 divs = vec2(gl_TexCoord[0].s * iPixelate*60.0 / gl_TexCoord[0].t, iPixelate*60.0);
-		uv = floor(uv * divs)/ divs;
-	}*/
 	vec3 col;
 	if ( iCrossfade > 0.95 )
 	{

@@ -48,11 +48,18 @@ vec3 DataTransfernorm(vec3 p)
 }
 void main(void)
 {
-   vec2 uv = iZoom * gl_TexCoord[0].st;
+	vec2 c = gl_FragCoord.xy / iResolution.xy;
+
+	float x = (c.x - 0.5)*iZoom ;
+	float y = (c.y - 0.5)*iZoom;
+
+	 vec2 p = vec2(x, y);
+
+  vec2 uv = iZoom * gl_FragCoord.xy / iResolution.xy;
    uv.x -= iRenderXY.x;
    uv.y -= iRenderXY.y;
 
-	vec2 p = -1.0 + 2.0 * uv;
+	//vec2 p = -1.0 + 2.0 * uv;
 	vec3 dir = normalize(vec3(p * vec2(1.77, 1.0), 1.0));
 	
 	// camera
@@ -71,12 +78,6 @@ void main(void)
 	
 	// fog
 	float fogFact = clamp(exp(-distance(ray, hit) * 0.3), 0.0, 1.0);
-	
-	/*if(fogFact < 0.05)
-	{
-		//gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
-		return vec3(0.0, 0.0, 0.0);
-	}*/
 	
 	// diffuse & specular light
 	vec3 sun = normalize(vec3(0.1, 1.0, 0.2));

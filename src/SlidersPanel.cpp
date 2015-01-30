@@ -35,9 +35,9 @@ SlidersPanel::SlidersPanel(ParameterBagRef aParameterBag, ShadersRef aShadersRef
 	maxZPos = 1.0;
 	tZPos = autoZPos = false;
 	// RotationSpeed
-	defaultRotationSpeed = 1.0;
-	minRotationSpeed = -10.0;
-	maxRotationSpeed = 10.0;
+	defaultRotationSpeed = 0.0;
+	minRotationSpeed = -2.0;
+	maxRotationSpeed = 2.0;
 	tRotationSpeed = autoRotationSpeed = false;
 
 	setupParams();
