@@ -279,9 +279,9 @@ void main(void)
 	vec2 uv = gl_FragCoord.xy / iResolution.xy;
 	uv.x -= iRenderXY.x;
 	uv.y -= iRenderXY.y;
-	float rad = radians(360.0 * fract(iGlobalTime*iRotationSpeed));
-	mat2 rotate = mat2(cos(rad),sin(rad),-sin(rad),cos(rad));
-	uv = rotate * (uv - 0.5) + 0.5;
+	//float rad = radians(360.0 * fract(iGlobalTime*iRotationSpeed));
+	//mat2 rotate = mat2(cos(rad),sin(rad),-sin(rad),cos(rad));
+	//uv = rotate * (uv - 0.5) + 0.5;
 
 	if (iGlitch == 1) 
 	{
