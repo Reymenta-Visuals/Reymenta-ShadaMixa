@@ -26,7 +26,7 @@ void OutputPanel::setup()
 	// We grab the screen so it has to be the same size
 	spoutTexture = gl::Texture(g_Width, g_Height);
 	strcpy_s(SenderName, "Reymenta Shader Sender"); // we have to set a sender name first
-	spoutsender.SetDX9(false);
+	//spoutsender.SetDX9(false);
 	// Optionally test for texture share compatibility
 	// bMemoryMode informs us whether Spout initialized for texture share or memory share
 	bMemoryMode = spoutsender.GetMemoryShareMode();// returns false
@@ -110,8 +110,6 @@ void OutputPanel::draw()
 			// Update the global width and height
 			g_Width = mParameterBag->mOutputResolution.x;
 			g_Height = mParameterBag->mOutputResolution.y;
-			// TODO? Update the local texture to receive the new dimensions
-			//RTE mSpoutFbo = gl::Fbo(g_Width, g_Height); 
 			//return; // quit for next round
 		}
 		mSpoutFbo.bindFramebuffer();

@@ -60,6 +60,8 @@ void ReymentaShadaMixaApp::setup()
 	mMeshes = Meshes::create(mParameterBag, mTextures);
 	// instanciate the PointSphere class
 	mSphere = PointSphere::create(mParameterBag, mTextures, mShaders);
+	// instanciate the spout class
+	mSpout = SpoutWrapper::create(mParameterBag, mTextures);
 	// instanciate the Render class
 	//mRender = Render::create(mParameterBag, mTextures);
 	// midi
@@ -91,6 +93,8 @@ void ReymentaShadaMixaApp::shutdown()
 		mUI->shutdown();
 		if (mMeshes->isSetup()) mMeshes->shutdown();
 		mShaders->shutdownLoader();
+		// close spout
+		mSpout->shutdown();
 		quit();
 	}
 }
@@ -134,6 +138,7 @@ void ReymentaShadaMixaApp::update()
 		break;
 	}
 	if (!removeUI) mUI->update();
+	mSpout->update();
 	mTextures->update();
 	mOSC->update();
 	mAudio->update();
@@ -578,6 +583,7 @@ void ReymentaShadaMixaApp::deleteRenderWindows()
 }
 void ReymentaShadaMixaApp::drawMain()
 {
+	mSpout->draw();
 	// draw the fbos
 	mTextures->draw();
 	//if (mParameterBag->mUIRefresh < 1.0) mParameterBag->mUIRefresh = 1.0;

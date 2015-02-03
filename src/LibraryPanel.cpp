@@ -23,7 +23,7 @@ LibraryPanelRef LibraryPanel::create(ParameterBagRef aParameterBag, TexturesRef 
 
 void LibraryPanel::setupParams()
 {
-	mParams = UIController::create("{ \"visible\":true, \"x\":220, \"y\":176, \"width\":650, \"height\":530, \"depth\":203, \"panelColor\":\"0x44282828\" }");
+	mParams = UIController::create("{ \"visible\":true, \"x\":220, \"y\":176, \"width\":650, \"height\":600, \"depth\":203, \"panelColor\":\"0x44282828\" }");
 	mParams->DEFAULT_UPDATE_FREQUENCY = 12;
 	// set custom fonts for a UIController
 	mParams->setFont("label", mParameterBag->mLabelFont);
@@ -33,16 +33,15 @@ void LibraryPanel::setupParams()
 	mParams->setFont("body", mParameterBag->mBodyFont);
 	mParams->setFont("footer", mParameterBag->mFooterFont);
 
-	mParams->addLabel("Frag", "{ \"clear\":false, \"width\":64 }");
+	sliderLeftRenderXY = mParams->addSlider2D("LeftXY", &mParameterBag->mLeftRenderXY, "{ \"clear\":false, \"minX\":-0.5, \"maxX\":0.5, \"minY\":-0.5, \"maxY\":0.5, \"width\":" + toString(mParameterBag->mPreviewWidth) + " }");
+	sliderRightRenderXY = mParams->addSlider2D("RightXY", &mParameterBag->mRightRenderXY, "{ \"clear\":false, \"minX\":-0.5, \"maxX\":0.5, \"minY\":-0.5, \"maxY\":0.5, \"width\":" + toString(mParameterBag->mPreviewWidth) + " }");
+	sliderMixRenderXY = mParams->addSlider2D("MixXY", &mParameterBag->mPreviewRenderXY, "{ \"clear\":false, \"minX\":-0.5, \"maxX\":0.5, \"minY\":-0.5, \"maxY\":0.5, \"width\":" + toString(mParameterBag->mPreviewWidth) + " }");
+	sliderPreviewRenderXY = mParams->addSlider2D("PreviewFragXY", &mParameterBag->mPreviewFragXY, "{ \"minX\":-0.5, \"maxX\":0.5, \"minY\":-0.5, \"maxY\":0.5, \"width\":" + toString(mParameterBag->mPreviewWidth) + " }");
+	mParams->addSlider("LZoom", &mParameterBag->iZoomLeft, "{ \"clear\":false, \"width\":" + toString(mParameterBag->mPreviewWidth) + ", \"min\":0.1, \"max\":2.0 }");
+	mParams->addSlider("RZoom", &mParameterBag->iZoomRight, "{ \"clear\":false, \"width\":" + toString(mParameterBag->mPreviewWidth) + ", \"min\":0.1, \"max\":2.0 }");
 	flipButton = mParams->addButton("Flip", std::bind(&LibraryPanel::flipLibraryCurrentFbo, this, std::placeholders::_1), "{ \"width\":48, \"stateless\":false, \"pressed\":true }");
-	sliderLeftRenderXY = mParams->addSlider2D("LeftXY", &mParameterBag->mLeftRenderXY, "{ \"clear\":false, \"minX\":-2.0, \"maxX\":2.0, \"minY\":-2.0, \"maxY\":2.0, \"width\":" + toString(mParameterBag->mPreviewWidth) + " }");
-	sliderRightRenderXY = mParams->addSlider2D("RightXY", &mParameterBag->mRightRenderXY, "{ \"clear\":false, \"minX\":-2.0, \"maxX\":2.0, \"minY\":-2.0, \"maxY\":2.0, \"width\":" + toString(mParameterBag->mPreviewWidth) + " }");
-	sliderMixRenderXY = mParams->addSlider2D("MixXY", &mParameterBag->mPreviewRenderXY, "{ \"clear\":false, \"minX\":-2.0, \"maxX\":2.0, \"minY\":-2.0, \"maxY\":2.0, \"width\":" + toString(mParameterBag->mPreviewWidth) + " }");
-	sliderPreviewRenderXY = mParams->addSlider2D("PreviewFragXY", &mParameterBag->mPreviewFragXY, "{ \"minX\":-2.0, \"maxX\":2.0, \"minY\":-2.0, \"maxY\":2.0, \"width\":" + toString(mParameterBag->mPreviewWidth) + " }");
-	mParams->addSlider("LZoom", &mParameterBag->iZoomLeft, "{ \"clear\":false, \"width\":" + toString(mParameterBag->mPreviewWidth) + ", \"min\":0.1, \"max\":5.0 }");
-	mParams->addSlider("RZoom", &mParameterBag->iZoomRight, "{ \"width\":" + toString(mParameterBag->mPreviewWidth) + ", \"min\":0.1, \"max\":5.0 }");
-	// create 8 frag btns
-	for (int i = 0; i < 8; i++)
+	// create 10 frag btns
+	for (int i = 0; i < 10; i++)
 	{
 		buttonFrag.push_back(mParams->addButton(toString(i), std::bind(&LibraryPanel::setCurrentFbo, this, i + 8, std::placeholders::_1), "{ \"clear\":false, \"width\":48, \"stateless\":false, \"group\":\"fbolib\", \"exclusive\":true }"));
 		mParams->addButton("L", std::bind(&LibraryPanel::setLeftFragActive, this, i, std::placeholders::_1), "{ \"clear\":false, \"width\":18, \"stateless\":false, \"group\":\"c0\", \"exclusive\":true }");
@@ -87,6 +86,7 @@ void LibraryPanel::update()
 				sliderRightRenderXY->setBackgroundTexture(mTextures->getFboTexture(mParameterBag->mRightFboIndex));
 				sliderMixRenderXY->setBackgroundTexture(mTextures->getFboTexture(mParameterBag->mMixFboIndex));
 				sliderPreviewRenderXY->setBackgroundTexture(mTextures->getFboTexture(mParameterBag->mCurrentPreviewFboIndex));
+				//buttonFrag[mParameterBag->mPreviewFragIndex]->setBackgroundTexture(mTextures->getFboThumb(mParameterBag->mCurrentPreviewFboIndex));
 				if (mParameterBag->mPreviewFragIndex != mParameterBag->mPreviousFragIndex)
 				{
 					buttonPreview[mParameterBag->mPreviousFragIndex]->release();				

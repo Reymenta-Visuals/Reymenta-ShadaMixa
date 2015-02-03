@@ -198,7 +198,7 @@ void UI::setupMiniControl()
 }
 void UI::setupGlobal()
 {
-	gParams = UIController::create("{ \"x\":874, \"y\":456, \"depth\":300, \"width\":400, \"height\":300, \"marginLarge\":2, \"fboNumSamples\":0, \"panelColor\":\"0x44282828\", \"defaultBackgroundColor\":\"0xFF0d0d0d\", \"defaultNameColor\":\"0xFF90a5b6\", \"defaultStrokeColor\":\"0xFF282828\", \"activeStrokeColor\":\"0xFF919ea7\" }", mWindow);
+	gParams = UIController::create("{ \"x\":874, \"y\":456, \"depth\":300, \"width\":400, \"height\":150, \"marginLarge\":2, \"fboNumSamples\":0, \"panelColor\":\"0x44282828\", \"defaultBackgroundColor\":\"0xFF0d0d0d\", \"defaultNameColor\":\"0xFF90a5b6\", \"defaultStrokeColor\":\"0xFF282828\", \"activeStrokeColor\":\"0xFF919ea7\" }", mWindow);
 	gParams->DEFAULT_UPDATE_FREQUENCY = 12;
 	gParams->setFont("label", mParameterBag->mLabelFont);
 	gParams->setFont("smallLabel", mParameterBag->mSmallLabelFont);
@@ -215,7 +215,8 @@ void UI::setupGlobal()
 
 	sliderRenderXY = gParams->addSlider2D("renderXY", &mParameterBag->mRenderXY, "{ \"clear\":false, \"minX\":-2.0, \"maxX\":2.0, \"minY\":-2.0, \"maxY\":2.0, \"width\":" + toString(mParameterBag->mPreviewWidth) + " }");
 
-	string posXY = toString(mParameterBag->mRenderWidth) + ", \"minY\":" + toString(mParameterBag->mRenderHeight) + ", \"maxY\":0.0, \"width\":" + toString(mParameterBag->mPreviewWidth) + " }";
+	//string posXY = toString(mParameterBag->mRenderWidth) + ", \"minY\":" + toString(mParameterBag->mRenderHeight) + ", \"maxY\":0.0, \"width\":" + toString(mParameterBag->mPreviewWidth) + " }";
+	string posXY = toString(mParameterBag->mFboWidth) + ", \"minY\":" + toString(mParameterBag->mFboHeight) + ", \"maxY\":0.0, \"width\":" + toString(mParameterBag->mPreviewWidth) + " }";
 	sliderRenderPosXY = gParams->addSlider2D("renderPosXY", &mParameterBag->mRenderPosXY, "{ \"minX\":0.0, \"maxX\":" + posXY);
 
 	labelError = gParams->addLabel("no error", "{ \"clear\":false, \"width\":370, \"nameColor\":\"0xFFAA0000\" }");
@@ -514,7 +515,6 @@ void UI::update()
 					mParameterBag->FPSColor = mParameterBag->ColorRed;
 				}
 				fpsMvg->setNameColor(mParameterBag->FPSColor);
-
 			}
 			if (mParameterBag->controlValues[12] == 0.0) mParameterBag->controlValues[12] = 0.01;
 

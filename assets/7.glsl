@@ -2,20 +2,13 @@ void main(void)
 {
 	vec2 uv = gl_FragCoord.xy / iResolution.xy;
 	// aspect-ratio correction
-
-	//vec2 uv = gl_FragCoord.xy / iResolution.xy * 2. -1.;
-    uv.x*=iResolution.x/iResolution.y;
+   	uv.x*=iResolution.x/iResolution.y;
    	uv.x -= iRenderXY.x;
    	uv.y -= iRenderXY.y;
-
-
-	//vec2 aspect = vec2(1.,iResolution.y/iResolution.x);
-	//vec2 uv_correct = 0.5 + (uv -0.5)/ aspect.yx;
 
 	float rad = radians(360.0 * fract(iGlobalTime*iRotationSpeed));
 	mat2 rotate = mat2(cos(rad),sin(rad),-sin(rad),cos(rad));
 	uv = rotate * (uv - 0.5) + 0.5;
-
 
 	float x = (uv.x - 0.5)*iZoom*2.0;
 	float y = (uv.y - 0.5)*iZoom*2.0;

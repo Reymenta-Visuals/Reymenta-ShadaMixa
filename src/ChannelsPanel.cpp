@@ -24,7 +24,7 @@ ChannelsPanelRef ChannelsPanel::create(ParameterBagRef aParameterBag, ShadersRef
 
 void ChannelsPanel::setupParams()
 {
-	mParams = UIController::create("{ \"visible\":true, \"x\":0, \"y\":176, \"width\":200, \"height\":530, \"depth\":203, \"panelColor\":\"0x44282828\" }");
+	mParams = UIController::create("{ \"visible\":true, \"x\":0, \"y\":176, \"width\":208, \"height\":530, \"depth\":203, \"panelColor\":\"0x44282828\" }");
 	mParams->DEFAULT_UPDATE_FREQUENCY = 12;
 	// set custom fonts for a UIController
 	mParams->setFont("label", mParameterBag->mLabelFont);
@@ -64,7 +64,7 @@ void ChannelsPanel::setupParams()
 
 	// camera control AND fbo preview
 	sliderCamEyePointXY = mParams->addSlider2D("EyePointXY", &mParameterBag->mCamEyePointXY, "{ \"minX\":-10.0, \"maxX\":10.0, \"minY\":-10.0, \"maxY\":10.0, \"width\":" + toString(mParameterBag->mPreviewWidth) + " }");
-	sliderCamPosXY = mParams->addSlider2D("camPosXY", &mParameterBag->mCamPosXY, "{ \"minX\":-640.0, \"maxX\":640.0, \"minY\":-480.0, \"maxY\":480.0, \"width\":" + toString(mParameterBag->mPreviewWidth) + " }");
+	//sliderCamPosXY = mParams->addSlider2D("camPosXY", &mParameterBag->mCamPosXY, "{ \"minX\":-640.0, \"maxX\":640.0, \"minY\":-480.0, \"maxY\":480.0, \"width\":" + toString(mParameterBag->mPreviewWidth) + " }");
 
 	// camera z
 	sliderCamEyePointZ = mParams->addToggleSlider("EyePointZ", &mParameterBag->mCamEyePointZ, "a", std::bind(&ChannelsPanel::lockEyePointZ, this, std::placeholders::_1), "{ \"clear\":false, \"width\":" + toString(mParameterBag->mPreviewWidth - 39) + ", \"min\":" + toString(mParameterBag->minEyePointZ) + ", \"max\":" + toString(mParameterBag->maxEyePointZ) + " }", "{ \"width\":9, \"stateless\":false, \"group\":\"EyePointZ\", \"exclusive\":true, \"clear\":false }");

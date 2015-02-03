@@ -23,6 +23,8 @@
 #include "WindowMngr.h"
 // OSC
 #include "OSCWrapper.h"
+// spout
+#include "SpoutWrapper.h"
 // preview
 //#include "Preview.h"
 // texture sequence
@@ -135,6 +137,8 @@ private:
 	OSCRef						mOSC;
 	// util
 	BatchassRef					mBatchass;
+	// spout
+	SpoutWrapperRef				mSpout;
 	// Preview
 	//PreviewRef					mPreview;
 	// sequence

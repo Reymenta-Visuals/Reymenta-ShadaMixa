@@ -45,7 +45,7 @@ namespace Reymenta
 
 		MinimalUI::UIElementRef				buttonChannel1[8], buttonChannel2[8];// , buttonChannel3[8], buttonChannel4[8], buttonChannel5[8], buttonChannel6[8], buttonChannel7[8];
 		MinimalUI::UIElementRef				labelChannel1, labelChannel2;// , labelChannel3, labelChannel4, labelChannel5, labelChannel6, labelChannel7;
-		MinimalUI::UIElementRef				sliderCamPosXY, sliderCamEyePointXY, sliderCamEyePointZ;
+		MinimalUI::UIElementRef				sliderCamEyePointXY, sliderCamEyePointZ;//sliderCamPosXY, 
 		MinimalUI::UIElementRef				buttonMesh[10];
 		MinimalUI::UIElementRef				currentMeshLabel;// , currentRenderShaderLabel, currentPreviewShaderLabel;
 		//void setCurrentFbo(const int &aFbo, const bool &pressed);
