@@ -74,7 +74,7 @@ vec2 VideoHeightFieldWorldToTex(vec3 p)
 
 float VideoHeightFieldHeightField(vec3 p)
 {
-	return VideoHeightFieldLuminance(iChannel1, VideoHeightFieldWorldToTex(p))*iFreq0/250.0;
+	return VideoHeightFieldLuminance(iChannel0, VideoHeightFieldWorldToTex(p))*iFreq0/250.0;
 }
 
 bool VideoHeightFieldTraceHeightField(vec3 ro, vec3 rayStep, out vec3 hitPos)
