@@ -45,7 +45,8 @@ namespace Reymenta
 		vector<MinimalUI::UIElementRef>	buttonPreview;
 	private:
 		void setupParams();
-		void flipLibraryCurrentFbo(const bool &pressed);
+		void flipV(const bool &pressed);
+		void flipH(const bool &pressed);
 		//void setLeftFboActive(const int &aIndex, const bool &pressed);
 		//void setRightFboActive(const int &aIndex, const bool &pressed);
 		void setLeftFragActive(const int &aIndex, const bool &pressed);
@@ -54,7 +55,7 @@ namespace Reymenta
 		//void setFboActive(const int &aIndex, const bool &pressed);
 		vector<MinimalUI::UIElementRef>	buttonFrag, buttonActive;
 		
-		MinimalUI::UIElementRef			flipButton, sliderLeftRenderXY, sliderRightRenderXY, sliderMixRenderXY, sliderPreviewRenderXY;
+		MinimalUI::UIElementRef			flipVButton, flipHButton, sliderLeftRenderXY, sliderRightRenderXY, sliderMixRenderXY, sliderPreviewRenderXY;
 		MinimalUI::UIControllerRef		mParams;
 		bool							mVisible;
 

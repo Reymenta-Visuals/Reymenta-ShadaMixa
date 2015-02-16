@@ -39,7 +39,8 @@ void LibraryPanel::setupParams()
 	sliderPreviewRenderXY = mParams->addSlider2D("PreviewFragXY", &mParameterBag->mPreviewFragXY, "{ \"minX\":-0.5, \"maxX\":0.5, \"minY\":-0.5, \"maxY\":0.5, \"width\":" + toString(mParameterBag->mPreviewWidth) + " }");
 	mParams->addSlider("LZoom", &mParameterBag->iZoomLeft, "{ \"clear\":false, \"width\":" + toString(mParameterBag->mPreviewWidth) + ", \"min\":0.1, \"max\":2.0 }");
 	mParams->addSlider("RZoom", &mParameterBag->iZoomRight, "{ \"clear\":false, \"width\":" + toString(mParameterBag->mPreviewWidth) + ", \"min\":0.1, \"max\":2.0 }");
-	flipButton = mParams->addButton("Flip", std::bind(&LibraryPanel::flipLibraryCurrentFbo, this, std::placeholders::_1), "{ \"width\":48, \"stateless\":false, \"pressed\":true }");
+	flipVButton = mParams->addButton("FlipV", std::bind(&LibraryPanel::flipV, this, std::placeholders::_1), "{ \"clear\":false, \"width\":48, \"stateless\":false, \"pressed\":true }");
+	flipHButton = mParams->addButton("FlipH", std::bind(&LibraryPanel::flipH, this, std::placeholders::_1), "{ \"width\":48, \"stateless\":false, \"pressed\":true }");
 	// create 10 frag btns
 	for (int i = 0; i < 10; i++)
 	{
@@ -51,9 +52,13 @@ void LibraryPanel::setupParams()
 	buttonPreview[2]->press();
 
 }
-void LibraryPanel::flipLibraryCurrentFbo(const bool &pressed)
+void LibraryPanel::flipV(const bool &pressed)
 {
 	mTextures->flipMixFbo(pressed);
+}
+void LibraryPanel::flipH(const bool &pressed)
+{
+	mTextures->flipMixFboH(pressed);
 }
 void LibraryPanel::setCurrentFbo(const int &aIndex, const bool &pressed)
 {
