@@ -30,6 +30,9 @@ void ReymentaShadaMixaApp::setup()
 	mIsShutDown = false;
 	removeUI = false;
 
+	// instanciate the WebSockets class
+	mWebSockets = WebSockets::create(mParameterBag);
+
 	// instanciate the Shaders class, must not be in prepareSettings
 	mShaders = Shaders::create(mParameterBag);
 
@@ -140,6 +143,7 @@ void ReymentaShadaMixaApp::update()
 	if (!removeUI) mUI->update();
 	mSpout->update();
 	mTextures->update();
+	mWebSockets->update();
 	mOSC->update();
 	mAudio->update();
 	mShaders->update();

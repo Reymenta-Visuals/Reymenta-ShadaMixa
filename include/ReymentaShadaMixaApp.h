@@ -45,6 +45,8 @@
 #include "CodeEditor.h"
 // utilities
 #include "Batchass.h"
+// WebSockets
+#include "WebSocketsWrapper.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -118,7 +120,8 @@ private:
 
 	// Logger
 	LoggerRef					log;
-
+	// WebSockets
+	WebSocketsRef				mWebSockets;
 	// Shaders
 	ShadersRef					mShaders;
 	// Textures
