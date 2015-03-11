@@ -38,6 +38,8 @@ void ReymentaShadaMixaApp::setup()
 
 	// instanciate the textures class
 	mTextures = Textures::create(mParameterBag, mShaders);
+	// instanciate the json wrapper class
+	mJson = JSONWrapper::create();
 
 	// instanciate the audio class
 	mAudio = AudioWrapper::create(mParameterBag, mTextures);

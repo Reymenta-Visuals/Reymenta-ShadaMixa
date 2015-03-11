@@ -423,6 +423,9 @@
     <ClInclude Include="..\..\..\blocks\Cinder-WebSocketPP\src\websocketpp\version.hpp">
       <Filter>blocks\Cinder-WebSocketPP\Header Files\websocketpp</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\blocks\Cinder-Reymenta\include\JSONWrapper.h">
+      <Filter>Blocks\Reymenta\include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\ReymentaShadaMixaApp.cpp">
@@ -733,6 +736,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\blocks\Cinder-WebSocketPP\src\WebSocketServer.cpp">
       <Filter>blocks\Cinder-WebSocketPP\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\blocks\Cinder-Reymenta\src\JSONWrapper.cpp">
+      <Filter>Blocks\Reymenta\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

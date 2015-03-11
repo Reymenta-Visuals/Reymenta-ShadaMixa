@@ -25,6 +25,8 @@
 #include "OSCWrapper.h"
 // spout
 #include "SpoutWrapper.h"
+// json
+#include "JSONWrapper.h"
 // preview
 //#include "Preview.h"
 // texture sequence
@@ -126,6 +128,8 @@ private:
 	ShadersRef					mShaders;
 	// Textures
 	TexturesRef					mTextures;
+	// json
+	JSONWrapperRef				mJson;
 	// minimalUI
 	UIRef						mUI;
 	// imGui
