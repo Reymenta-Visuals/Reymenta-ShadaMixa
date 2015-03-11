@@ -95,7 +95,7 @@ void ReymentaShadaMixaApp::shutdown()
 		mParameterBag->save();
 		mUI->shutdown();
 		if (mMeshes->isSetup()) mMeshes->shutdown();
-		mShaders->shutdownLoader();
+		// not implemented mShaders->shutdownLoader();
 		// close spout
 		mSpout->shutdown();
 		quit();
